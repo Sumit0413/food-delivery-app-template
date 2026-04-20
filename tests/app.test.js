@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import App from '../src/App';
 import { Provider } from 'react-redux';
@@ -20,5 +21,7 @@ test('renders cart', () => {
     </Provider>
   );
 
-  expect(screen.getByText(/Cart/i)).toBeInTheDocument();
+  expect(
+    screen.getByRole('heading', { name: /Cart/i })
+  ).toBeInTheDocument();
 });
